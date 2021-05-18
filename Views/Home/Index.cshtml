@@ -1,0 +1,51 @@
+﻿@model IEnumerable<batman_quiz_2.Models.quiz_singletable>
+
+@{
+    ViewBag.Title = "Nolanverse Batman Quiz";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@*
+    LOAD QUESTIONS - FOR EACH "ITEM" IN MODEL BASED ON SINGLE TABLE
+*@
+
+@foreach (var item in Model)
+{
+    <h2>
+        @*Question Number*@
+        Question @item.question_id
+
+    </h2>
+    <h3>
+        @*Question Text*@
+        @item.question_text
+    </h3>
+
+    @*Answer Options 1-4 *@
+    <input type="radio" id="option1" name="@item.question_id" value="@item.question_answer1" class="radiobutton"/>
+    @item.question_answer1
+    <br />
+
+    <input type="radio" id="option2" name="@item.question_id" value="@item.question_answer2" class="radiobutton"/>
+    @item.question_answer2
+    <br />
+
+    <input type="radio" id="option3" name="@item.question_id" value="@item.question_answer3" class="radiobutton"/>
+    @item.question_answer3
+    <br />
+
+    <input type="radio" id="option4" name="@item.question_id" value="@item.question_answer4" class="radiobutton"/>
+    @item.question_answer4
+    <br />
+    @*Text area for correct answer*@
+    <hr />
+    @*Typed-out correct answer*@
+    <label id="CorrectAnswer"></label>
+    @*validation - if correct answer = input answer - green text "Correct! Else - Red Text -"Wrong Answer"*@
+    
+    <hr />
+}
+@*Submit Answers button*@
+<button type="button" id="SubmitButton" onclick="displayResults()">Submit Answers</button>
+

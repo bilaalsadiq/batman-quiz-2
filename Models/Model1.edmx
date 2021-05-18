@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BatmanQuizModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="quiz_singletable">
+          <Key>
+            <PropertyRef Name="question_id" />
+          </Key>
+          <Property Name="question_id" Type="int" Nullable="false" />
+          <Property Name="question_text" Type="text" Nullable="false" />
+          <Property Name="question_answer1" Type="text" Nullable="false" />
+          <Property Name="question_answer2" Type="text" Nullable="false" />
+          <Property Name="question_answer3" Type="text" Nullable="false" />
+          <Property Name="question_answer4" Type="text" Nullable="false" />
+          <Property Name="question_rightanswer" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="BatmanQuizModelStoreContainer">
+          <EntitySet Name="quiz_singletable" EntityType="Self.quiz_singletable" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BatmanQuizModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="quiz_singletable">
+          <Key>
+            <PropertyRef Name="question_id" />
+          </Key>
+          <Property Name="question_id" Type="Int32" Nullable="false" />
+          <Property Name="question_text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="question_answer1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="question_answer2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="question_answer3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="question_answer4" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="question_rightanswer" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="BatmanQuizEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="quiz_singletable" EntityType="Self.quiz_singletable" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BatmanQuizModelStoreContainer" CdmEntityContainer="BatmanQuizEntities">
+          <EntitySetMapping Name="quiz_singletable">
+            <EntityTypeMapping TypeName="BatmanQuizModel.quiz_singletable">
+              <MappingFragment StoreEntitySet="quiz_singletable">
+                <ScalarProperty Name="question_id" ColumnName="question_id" />
+                <ScalarProperty Name="question_text" ColumnName="question_text" />
+                <ScalarProperty Name="question_answer1" ColumnName="question_answer1" />
+                <ScalarProperty Name="question_answer2" ColumnName="question_answer2" />
+                <ScalarProperty Name="question_answer3" ColumnName="question_answer3" />
+                <ScalarProperty Name="question_answer4" ColumnName="question_answer4" />
+                <ScalarProperty Name="question_rightanswer" ColumnName="question_rightanswer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
